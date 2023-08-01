@@ -9,7 +9,13 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private KeyCode down = KeyCode.DownArrow;
     [SerializeField] private KeyCode left = KeyCode.LeftArrow;
     [SerializeField] private KeyCode right = KeyCode.RightArrow;
+    private Rigidbody rb;
     private bool inTrigger = false;
+    // Start is called before the first frame update
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +26,15 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(right))
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            rb.MovePosition(Vector3.forward * moveSpeed * Time.deltaTime);
         if (Input.GetKey(left))
-            transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+            rb.MovePosition(Vector3.back * moveSpeed * Time.deltaTime);
         if (inTrigger)
         {
             if (Input.GetKey(up))
-                transform.Translate(Vector3.up * moveSpeed * 2f * Time.deltaTime);
+                rb.MovePosition(Vector3.up * moveSpeed * 2f * Time.deltaTime);
             if (Input.GetKey(down))
-                transform.Translate(Vector3.down * moveSpeed * 0.5f * Time.deltaTime);
+                rb.MovePosition(Vector3.down * moveSpeed * 0.5f * Time.deltaTime);
         }
     }
 
