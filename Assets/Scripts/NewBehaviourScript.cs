@@ -26,32 +26,32 @@ public class NewBehaviourScript : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(right))
-            rb.MovePosition(Vector3.forward * moveSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + Vector3.forward * moveSpeed * Time.deltaTime);
         if (Input.GetKey(left))
-            rb.MovePosition(Vector3.back * moveSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + Vector3.back * moveSpeed * Time.deltaTime);
         if (inTrigger)
         {
             if (Input.GetKey(up))
-                rb.MovePosition(Vector3.up * moveSpeed * 2f * Time.deltaTime);
+                rb.MovePosition(rb.position + Vector3.up * moveSpeed * 2f * Time.deltaTime);
             if (Input.GetKey(down))
-                rb.MovePosition(Vector3.down * moveSpeed * 0.5f * Time.deltaTime);
+                rb.MovePosition(rb.position + Vector3.down * moveSpeed * 0.5f * Time.deltaTime);
         }
     }
 
     // Trigger
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Updraft"))
             inTrigger = true;
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Updraft"))
             inTrigger = true;
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Wall"))
+        if (other.CompareTag("Updraft"))
             inTrigger = false;
     }
 }

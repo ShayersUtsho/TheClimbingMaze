@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Wall
+  - Updraft
+  - Corner
+  - Backdrop
   layers:
   - Default
   - TransparentFX
