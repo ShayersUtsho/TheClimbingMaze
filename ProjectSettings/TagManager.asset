@@ -9,6 +9,7 @@ TagManager:
   - Updraft
   - Corner
   - Backdrop
+  - Goal
   layers:
   - Default
   - TransparentFX
