@@ -21,6 +21,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -45,10 +46,14 @@ public class NewBehaviourScript : MonoBehaviour
                     rb.MovePosition(rb.position + Vector3.down * moveSpeed * 0.5f * Time.deltaTime);
             }
         }
-        else if(winMessageMoveDuration < 1000f)
+        else if(winMessageMoveDuration < 5f)
         {
             winMessage.Translate(Vector3.right * Time.deltaTime);
-            winMessageMoveDuration += 1f;
+            winMessageMoveDuration += 1f * Time.deltaTime;
+        }
+        else
+        {
+            
         }
     }
 
